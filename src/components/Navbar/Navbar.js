@@ -6,14 +6,13 @@ import {
   Nav,
   NavbarContainer,
   NavLogo,
-  NavIcon,
   MobileIcon,
   NavMenu,
   NavItem,
   NavLinks,
   NavItemBtn,
-  NavBtnLink
-}from './Navbar.elements';
+  NavBtnLink,
+} from './Navbar.elements';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -22,17 +21,17 @@ const Navbar = () => {
   const handleClick = () => setClick(!click);
 
   const showButton = () => {
-    if(window.innerWidth <= 960) {
-      setButton(false)
+    if (window.innerWidth <= 960) {
+      setButton(false);
     } else {
-      setButton(true)
+      setButton(true);
     }
   };
 
   useEffect(() => {
     showButton();
   }, []);
-  
+
   window.addEventListener('resize', showButton);
 
   return (
@@ -40,9 +39,12 @@ const Navbar = () => {
       <IconContext.Provider value={{ color: '#fff' }}>
         <Nav>
           <NavbarContainer>
-            <NavLogo to='/'>
-              <NavIcon /> 
-              Semicolon   
+            <NavLogo to="/">
+              <img
+                src="https://scopo-media.s3.us-west-1.amazonaws.com/s3fs-public/2021-04/semicolon.png?auto=compress&cs=tinysrgb&h=10&w=10"
+                alt="new"
+                height="34"
+              />
             </NavLogo>
             <MobileIcon onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
@@ -50,39 +52,50 @@ const Navbar = () => {
 
             <NavMenu onClick={handleClick} click={click}>
               <NavItem>
-                <NavLinks to='/'>Who We Are</NavLinks>
+                <NavLinks to="/">Who We Are</NavLinks>
               </NavItem>
 
               <NavItem>
-                <NavLinks to='/
-                What We Do'>What We Do</NavLinks>
+                <NavLinks
+                  to="/
+                What We Do"
+                >
+                  What We Do
+                </NavLinks>
               </NavItem>
 
               <NavItem>
-                <NavLinks to='/
-                Event'>Event</NavLinks>
+                <NavLinks
+                  to="/
+                Event"
+                >
+                  Event
+                </NavLinks>
               </NavItem>
 
               <NavItem>
-                <NavLinks to='/
-                Blog'>Blog</NavLinks>
+                <NavLinks
+                  to="/
+                Blog"
+                >
+                  Blog
+                </NavLinks>
               </NavItem>
 
               <NavItemBtn>
                 {button ? (
                   <NavBtnLink to="/partner with us">
-                      <buton primary>Partner With Us</buton>
+                    <buton primary>Partner With Us</buton>
                   </NavBtnLink>
                 ) : (
                   <NavBtnLink to="/partner with us">
                     <Button fontBig primary>
                       Partner With Us
                     </Button>
-                  </NavBtnLink>       
-              )}
-            </NavItemBtn>
+                  </NavBtnLink>
+                )}
+              </NavItemBtn>
             </NavMenu>
-
           </NavbarContainer>
         </Nav>
       </IconContext.Provider>

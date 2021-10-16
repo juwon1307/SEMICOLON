@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import { Container } from '../../globalStyles';
 
 export const Nav = styled.nav`
-  background: #C0C0C0;
+  background: #c0c0c0;
   height: 80px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,6 +21,7 @@ export const NavbarContainer = styled(Container)`
   justify-content: space-between;
   height: 80px;
   border-bottom: 3px solid red;
+  color: #ffffff;
 
   ${Container}
 `;
@@ -64,8 +66,8 @@ export const NavMenu = styled.ul`
     width: 100%;
     height: 90vh;
     position: absolute;
-    top: 80px; 
-    left: ${({click}) => (click ? 0 : '-100%')};
+    top: 80px;
+    left: ${({ click }) => (click ? 0 : '-100%')};
     opacity: 1;
     transition: all 0.5s ease;
     background: #101522;
@@ -83,8 +85,8 @@ export const NavItem = styled.li`
   @media screen and (max-width: 960px) {
     width: 100%;
 
-  &:hover {
-    border: none;
+    &:hover {
+      border: none;
     }
   }
 `;
@@ -111,13 +113,13 @@ export const NavLinks = styled(Link)`
 `;
 
 export const NavItemBtn = styled.li`
-@media screen and (max-width: 960px) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 120px;
-}
+  @media screen and (max-width: 960px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+  }
 `;
 
 export const NavBtnLink = styled(Link)`
